@@ -40,25 +40,22 @@ all that manually!
 > Example:
 
 ```js
-fetch("/artists", {
-  method: "POST",
-  body: JSON.stringify({
-    artist: {
+  axios.post('/artists', {
       name: "Funkadelic",
       nationality: "USA",
       photo_url:
         "https://media1.fdncms.com/orlando/imager/u/original/10862750/screen_shot_2018-02-16_at_1.16.25_pm.png"
-    }
-  })
-})
-  .then(response => response.json())
+    })
   .then(response => {
     console.log(response);
+  })
+  .catch(error => {
+    console.log(error);
   });
 ```
 </details>
 
-## JSON Responses in Django (15 min / 0:25)
+## JSON Responses in Django
 
 Using Django's built-in `JsonResponse`, we can send dictionaries or lists as
 JSON objects in Django without installing any libraries.
@@ -91,7 +88,7 @@ Eventbrite, Instagram, Pinterest, and BitBucket. An increasingly popular stack
 among startups is Django Rest Framework for the back end and React for the front
 end!
 
-## Installation and Configuration (15 min / 0:40)
+## Installation and Configuration
 
 Change into your
   [`tunr`](https://github.com/SEI-R-11-8/django_tunr_solution)
@@ -160,10 +157,10 @@ path('', views.artist_list, name='artist_list'),
 The `namespace` in the project `urls.py` allows us to refer to paths more
 specifically, so we can say something like `rest_framework:path_name`.
 
-[Here are the docs](https://docs.djangoproject.com/en/2.2/topics/http/urls/#url-namespaces)
+[Here are the docs](https://docs.djangoproject.com/en/3.2/topics/http/urls/#url-namespaces)
 for more information about the `namespace` argument.
 
-## Serializers (20 min / 1:00)
+## Serializers
 
 [ Serializers ](https://www.django-rest-framework.org/api-guide/serializers/)
 allow us to convert our data from QuerySets (the data type returned by Django's
@@ -236,7 +233,7 @@ we look at our `tunr/urls.py` file, we already have a path like this:
 path('songs/<int:pk>', views.song_detail, name='song_detail')
 ```
 
-### You Do: Create a Serializer for Songs (10 min / 1:10)
+### You Do: Create a Serializer for Songs
 
 > 5 min exercise, 5 min review
 
@@ -278,7 +275,7 @@ class SongSerializer(serializers.HyperlinkedModelSerializer):
 
 </br>
 
-## Views (20 min / 1:40)
+## Views
 
 Django REST framework has a bunch of utility functions and classes for
 implementing sets of views in Django. Instead of creating each view
@@ -349,7 +346,7 @@ class SongDetail(generics.RetrieveUpdateDestroyAPIView):
 </details>
 </br>
 
-## URLs (20 min / 2:10)
+## URLs
 
 DRF comes with some pre-configured conventions for URLs, in what they call a
 `router`. These URLs map to views that follow a naming convention.
@@ -370,7 +367,7 @@ urlpatterns = [
 ]
 ```
 
-### You Do: Add URLs for the Song Views (10 min / 2:20)
+### You Do: Add URLs for the Song Views
 
 Add in the urls for the song views.
 
@@ -392,7 +389,7 @@ urlpatterns = [
 </details>
 </br>
 
-## Testing! (10 min / 2:30)
+## Testing!
 
 Now let's hit the urls we just built out and see what happens.
 
@@ -464,7 +461,7 @@ class SongSerializer(serializers.HyperlinkedModelSerializer):
 ```
 
 
-## Cors
+## CORS
 
 We need to configure CORS in order for other applications to use the API we just
 created.
