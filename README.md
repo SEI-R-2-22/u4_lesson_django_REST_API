@@ -91,7 +91,7 @@ end!
 ## Installation and Configuration
 
 Change into your
-  [`tunr`](https://github.com/SEI-R-11-8/django_tunr_solution)
+  [`tunr`](https://github.com/SEI-R-2-22/django_tunr_solution)
 project directory and make sure you have the latest code from the views and
 templates lesson. Make sure your virtual environment is activated, and
 also make sure your database user permissions are set up properly.
