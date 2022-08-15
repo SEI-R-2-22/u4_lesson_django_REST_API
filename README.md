@@ -265,8 +265,7 @@ urlpatterns = [
 ]
 ```
 
-If we have an empty path (''), that means our landing page will be our Artist List.
-What paths will we need to create to run our Artist Detail, Song List, and Song Detail routes?
+
 
 
 ## View Functions
