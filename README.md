@@ -266,6 +266,15 @@ urlpatterns = [
 ```
 
 
+Our List view is ready to roll, now we can create a Detail route for our Artist. Here we are selecting one
+artist instead of all of them. To do this, we receive a second parameter to the
+function, the primary key of the artist we want to display. Let's look at where
+that is coming from and connect the URL to the view in `urls.py`.
+
+```python
+# tunr/urls.py
+path('artists/<int:pk>', views.artist_detail, name='artist_detail'),
+```
 
 
 ## View Functions
