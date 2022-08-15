@@ -43,20 +43,7 @@ following command:
 pipenv shell
 ```
 
-## View Functions
 
-Using the `Artist` and `Song` models that we have already implemented, let's
-create templates to display our application's data! Views in Django are similar to
-controllers in Express. They pass data to our templates.
-
-```python
-# tunr/views.py
-from django.shortcuts import render
-
-from .models import Artist, Song
-
-
-```
 
 
 ## Introduction
@@ -191,17 +178,28 @@ In the `urls` list in `tunr_django/urls.py`, add the following to your
 path('api-auth', include('rest_framework.urls', namespace='rest_framework'))
 ```
 
-In our Templates, we can refer to each app path by it's `name`:
-
-```py
-path('', views.artist_list, name='artist_list'),
-```
 
 The `namespace` in the project `urls.py` allows us to refer to paths more
 specifically, so we can say something like `rest_framework:path_name`.
 
 [Here are the docs](https://docs.djangoproject.com/en/3.2/topics/http/urls/#url-namespaces)
 for more information about the `namespace` argument.
+
+## View Functions
+
+Using the `Artist` and `Song` models that we have already implemented, let's
+create templates to display our application's data! Views in Django are similar to
+controllers in Express. They pass data to our templates.
+
+```python
+# tunr/views.py
+from django.shortcuts import render
+
+from .models import Artist, Song
+
+
+```
+
 
 ## Serializers
 
