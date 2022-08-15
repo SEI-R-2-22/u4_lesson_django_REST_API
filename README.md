@@ -414,9 +414,6 @@ In this code example, we'll allow permissions for List and Create (CR in CRUD)
 on the ArtistList view. For ArtistDetail, we'll allow Retrieve, Update, Delete
 (RUD in CRUD) permissions.
 
-We can get rid of all the prior code in `tunr/views.py` since we're not going to
-be rendering any templates. We'll also have to get rid of all the urls in
-`tunr/urls.py` because they point to views that now no longer exist.
 
 ```py
 # views.py
