@@ -171,8 +171,74 @@ These URLs will be used for sign-in and sign-out pages. The framework will
 handle linking to these pages, we just need to include the URLs that have
 already been set up.
 
-In the `urls` list in `tunr_django/urls.py`, add the following to your
-`urlpatterns` list:
+
+## URLs
+
+Let's go ahead at how we will access these views -- through the URLs!
+
+In Django, the URL's deviate from the ones we've seen in other frameworks. They
+use stricter parameters where we have to specify the types of parameters. This
+eliminates a ton of the issues we've seen where we've had to reorder urls, but
+it makes them a bit more complicated.
+
+Let's look at the existing `urls.py` in the `tunr_django` directory. In there,
+let's add a couple things.
+
+```python
+# tunr_django/urls.py
+from django.conf.urls import include
+from django.urls import path
+from django.contrib import admin
+
+urlpatterns = [
+    path('admin', admin.site.urls),
+    path('', include('tunr.urls')),
+]
+```
+
+On the first line, we are adding an import - `include` - so that we can include
+other url files in our main one. We are doing this in order to make our app more
+modular. These "mini apps" in Django are supposed to plug into another parent
+app if needed, and modularity makes this possible.
+
+Next, Let's write our urls for our app in another file in the `tunr` directory.
+Create a file called called `urls.py` and paste the following code block into
+it.
+
+```python
+# tunr/urls.py
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('', views.artist_list, name='artist_list'),
+]
+```
+
+The path takes three arguments:
+
+- The first argument represents the URL path. Here, the artist list is going to be rendered in the root URL. Similar to the "/" URL in other languages, the path of the root URL starts, ends, and has nothing in between. In Django, we do not even need to include the `/`. This way of doing URLs is great because they are explicit. We no longer have to reorder or rename URLs in order to make them work!
+- The URL's second argument is the view function this route is going to match up with in the view file. So, at the root URL, the application will run the `artist_list` function we wrote in `views.py`.
+- Thirdly, we are going to use a named parameter. This is going to be referenced in our templates in order to link from one page to another.
+
+### You Do: Song List URL
+
+Add a URL to `tunr/urls.py` for the Song List.
+
+<details>
+<summary>Solution: Song List URL</summary>
+
+```python
+urlpatterns = [
+    path('', views.artist_list, name='artist_list'),
+    path('songs/', views.song_list, name='song_list')
+]
+```
+
+</details>
+
+Then, add the following to your
+`urlpatterns` list in your tunr_django/urls.py file:
 
 ```python
 path('api-auth', include('rest_framework.urls', namespace='rest_framework'))
@@ -184,6 +250,24 @@ specifically, so we can say something like `rest_framework:path_name`.
 
 [Here are the docs](https://docs.djangoproject.com/en/3.2/topics/http/urls/#url-namespaces)
 for more information about the `namespace` argument.
+
+
+Now touch a file tunr/urls.py, and add the following into there.
+
+```python
+
+# tunr/urls.py
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('', views.artist_list, name='artist_list'),
+]
+```
+
+If we have an empty path (''), that means our landing page will be our Artist List.
+What paths will we need to create to run our Artist Detail, Song List, and Song Detail routes?
+
 
 ## View Functions
 
