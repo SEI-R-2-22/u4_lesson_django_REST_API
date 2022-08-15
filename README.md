@@ -4,17 +4,60 @@
 
 ## Overview
 
-The Django apps we've built so far have used server-side rendering and Django's built-in templating language to generate HTML. But what if we want to use Django to create an API?
+We have built up a basic database with Django. But what good is that if we cant view our data and connect it to a front end? Enter the Django Rest Framework, an incredible way to build up full CRUD relational API's using the configurative functionality of Django.
+
+
 
 We can do so with the
 [Django REST Framework](https://www.django-rest-framework.org/).
 
-## Objectives
+
 
 By the end of this, developers should be able to:
 
 - Install and use Django REST Framework
 - Implement an API in Django
+
+## Review
+
+In the previous lesson, we learned how Django deals with data using models. We
+updated our `settings.py` file with the `DATABASE` and `INSTALLED APPS`. We
+utilized the `models.py` file to define our schema, set our data types and
+require constraints. We used our `admin.py` file to allow our superuser to
+perform CRUD on our application in the Django UI. There are a lot of other files
+here that we haven't used.
+
+### You Do: Django Application File Review (5 min)
+
+Take a few minutes to look through the files in our application, knowing what
+you learned in the last lesson. What have we done so far? What files will we
+need in today's lesson?
+
+### Before We Start
+
+Navigate to the directory in your sandbox where you've been following along as
+we built out Tunr. Activate the virtual environment you created earlier with the
+following command:
+
+```sh
+pipenv shell
+```
+
+## View Functions
+
+Using the `Artist` and `Song` models that we have already implemented, let's
+create templates to display our application's data! Views in Django are similar to
+controllers in Express. They pass data to our templates.
+
+```python
+# tunr/views.py
+from django.shortcuts import render
+
+from .models import Artist, Song
+
+
+```
+
 
 ## Introduction
 
