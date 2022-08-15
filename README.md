@@ -193,8 +193,10 @@ from django.contrib import admin
 urlpatterns = [
     path('admin', admin.site.urls),
     path('', include('tunr.urls')),
-]
+    path('api-auth', include('rest_framework.urls', namespace='rest_framework'))
+    ]
 ```
+
 
 On the first line, we are adding an import - `include` - so that we can include
 other url files in our main one. We are doing this in order to make our app more
@@ -237,12 +239,6 @@ urlpatterns = [
 
 </details>
 
-Then, add the following to your
-`urlpatterns` list in your tunr_django/urls.py file:
-
-```python
-path('api-auth', include('rest_framework.urls', namespace='rest_framework'))
-```
 
 
 The `namespace` in the project `urls.py` allows us to refer to paths more
