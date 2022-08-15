@@ -252,19 +252,6 @@ specifically, so we can say something like `rest_framework:path_name`.
 for more information about the `namespace` argument.
 
 
-Now touch a file tunr/urls.py, and add the following into there.
-
-```python
-
-# tunr/urls.py
-from django.urls import path
-from . import views
-
-urlpatterns = [
-    path('', views.artist_list, name='artist_list'),
-]
-```
-
 
 Our List view is ready to roll, now we can create a Detail route for our Artist. Here we are selecting one
 artist instead of all of them. To do this, we receive a second parameter to the
@@ -274,6 +261,7 @@ that is coming from and connect the URL to the view in `urls.py`.
 ```python
 # tunr/urls.py
 path('artists/<int:pk>', views.artist_detail, name='artist_detail'),
+path('songs/<int:pk>', views.song_detail, name='song_detail'),
 ```
 
 
