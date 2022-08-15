@@ -174,7 +174,7 @@ already been set up.
 
 ## URLs
 
-Let's go ahead at how we will access these views -- through the URLs!
+Let's go ahead and see how we will access these views -- through the URLs!
 
 In Django, the URL's deviate from the ones we've seen in other frameworks. They
 use stricter parameters where we have to specify the types of parameters. This
@@ -202,7 +202,7 @@ modular. These "mini apps" in Django are supposed to plug into another parent
 app if needed, and modularity makes this possible.
 
 Next, Let's write our urls for our app in another file in the `tunr` directory.
-Create a file called called `urls.py` and paste the following code block into
+Create a file called called `urls.py` and write the following code block into
 it.
 
 ```python
