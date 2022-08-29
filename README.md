@@ -110,7 +110,7 @@ Django REST framework is a package that works nicely with Django's base
 functionality. It has a lot of advantages over just sending a JSON response, not
 to mention a nice interface. It will even generate an administrator interface
 for you to interact with your API in the browser - so you don't need to use
-Postman! It is also very customizable, so if you want to change how your API
+Insomnia! It is also very customizable, so if you want to change how your API
 renders, you can probably do it!
 
 It is also very widely used - it is used by Mozilla, Red Hat, Heroku,
